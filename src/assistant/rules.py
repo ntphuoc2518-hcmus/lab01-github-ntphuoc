@@ -6,7 +6,7 @@ from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 
-GREETINGS = {"hi", "hello", "hey", "xin chao", "chao"}
+GREETINGS = {"hi", "hello", "hey", "xin chao", "chao", "good morning"}
 
 
 def load_offices(path: Path = DATA_DIR / "offices.csv") -> dict[str, dict[str, str]]:
@@ -20,8 +20,13 @@ def reply(message: str, offices: dict[str, dict[str, str]] | None = None) -> str
     text = message.strip().lower().rstrip("?!.")
     if not text:
         return "Please type a question."
+
+    if text == "help":
+        return "You can ask about an office, when it opens, or type 'help' for assistance."
+
     if text in GREETINGS:
         return "Hello! Ask me where an office is, or when it opens."
+    
     offices = offices if offices is not None else load_offices()
     for name, row in offices.items():
         if name in text:
