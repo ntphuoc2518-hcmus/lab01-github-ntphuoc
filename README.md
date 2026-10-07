@@ -124,12 +124,38 @@ The expected result:
 
 ## Project structure
 
+```text
+lab01-github-ntphuoc/
+├── data/
+│   └── offices.csv
+├── docs/
+│   └── lab1/
+├── scripts/
+│   └── check_env.py
+├── src/
+│   └── assistant/
+│       └── rules.py
+├── tests/
+│   └── test_smoke.py
+├── ui/
+├── .gitignore
+├── README.md
+├── pyproject.toml
+└── requirements.txt
+```
+
+### Folder and file descriptions
+
 - `data/` — contains data files used by the project.
-- `docs/` — contains project documentation.
+- `docs/` — contains project documentation and lab materials.
 - `scripts/` — contains utility and environment-checking scripts.
 - `src/` — contains the main source code of the project.
 - `tests/` — contains automated tests.
 - `ui/` — contains files related to the user interface.
+- `.gitignore` — specifies files and folders that Git should ignore.
+- `README.md` — contains project information and usage instructions.
+- `pyproject.toml` — contains Python project configuration.
+- `requirements.txt` — lists the project's Python dependencies.
 
 ## Troubleshooting
 
