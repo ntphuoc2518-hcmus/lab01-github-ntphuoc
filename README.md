@@ -1,6 +1,23 @@
-# Study Assistant — starter
+# Study Assistant – starter
 
 A starter repository for the CSC10014 Smart Virtual Assistant project.
+
+The project provides a command-line study assistant that can receive a question from the user and return an appropriate response.
+
+## Prerequisites
+
+Before setting up the project, make sure you have:
+
+- Python 3.10 or newer
+- Git
+- Windows PowerShell (for Windows users)
+
+You can check your versions with:
+
+```powershell
+python --version
+git --version
+```
 
 ## Setup
 
@@ -11,7 +28,7 @@ A starter repository for the CSC10014 Smart Virtual Assistant project.
    git clone https://github.com/ntphuoc2518-hcmus/lab01-github-ntphuoc.git
    cd lab01-github-ntphuoc
 
-2. Create a Python virtual environmentL:
+2. Create a Python virtual environment:
 
     Create a Python virtual environment:
     ```powershell
@@ -102,7 +119,7 @@ pytest -q
 The expected result:
 
 ```powershell
-4 passed
+5 passed
 ```
 
 ## Project structure
@@ -113,3 +130,62 @@ The expected result:
 - `src/` — contains the main source code of the project.
 - `tests/` — contains automated tests.
 - `ui/` — contains files related to the user interface.
+
+## Troubleshooting
+
+### 1. Python command is not recognized
+
+If `python` is not recognized, make sure Python 3.10 or newer is installed and added to PATH.
+
+Check the Python version:
+
+```powershell
+python --version
+```
+
+### 2. Virtual environment cannot be activated on PowerShell
+
+If PowerShell blocks the activation script, run:
+```powershell 
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+Then activate the virtual environment again:
+```powershell
+.venv\Scripts\Activate.ps1
+```
+### 3. Dependencies are missing
+
+If the program cannot import a required package, make sure the virtual environment is activated and install the dependencies:
+```powershell
+pip install -r requirements.txt
+```
+
+If the project package is not recognized, install it in editable mode:
+```powershell
+pip install -e .
+```
+
+### 4. Tests fail
+
+Run the tests with:
+```powershell
+pytest -q
+```
+If a test fails, check that you are running the command from the project root directory and that the virtual environment is activated.
+
+### 5. Git push is rejected with a 403 error
+If you see:
+```powershell
+remote: Permission to ... denied
+fatal: ... 403
+```
+make sure you are authenticated with the GitHub account that has permission to access the repository.
+
+For HTTPS authentication, Git may ask you to complete authentication in your browser.
+
+You can check the repository remote with:
+
+```powershell
+git remote -v
+```
