@@ -1,50 +1,11 @@
-# Setup Failure Log
+# Lab 1 homework — Break your setup, recover from the README
 
-## Failure 1 — Deleted virtual environment
+1. Break it on purpose (choose one): delete `.venv`; move the repo to another folder; uninstall pytest; clone into a new folder.
+2. Recover using **only** your README.
+3. Record:
 
-### What I broke
+| What I broke | Error message I saw | How I fixed it | README change needed? |
+|---|---|---|---|
+| Deleted the `.venv` directory | The virtual environment and its installed dependencies were missing, so the test environment was not available. | Recreated `.venv`, activated it, installed the requirements, installed the project with `pip install -e .`, and ran `pytest -q`. The tests passed with `5 passed`. | No |
 
-I intentionally deleted the `.venv` directory:
-
-```powershell
-Remove-Item -Recurse -Force .venv
-```
-After that, the project no longer had its Python virtual environment and the test environment was not available.
-
-### Symptom
-
-Running the tests failed because the virtual environment and its installed dependencies were missing.
-
-### How I recovered
-
-I opened README.md and followed the setup instructions:
-
-```powershell 
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-pip install -e .
-pytest -q
-```
-
-### Verification
-
-The tests passed again:
-
-```powershell
-5 passed
-```
-
-I also ran:
-
-```powershell
-python scripts/check_env.py
-```
-
-and the environment checks passed.
-
-### Lesson learned 
-
-The README contains enough setup information to recreate the development environment after the virtual environment is deleted.
-
-
+Commit the README fix (if any) with a Conventional Commit message and paste the link here.
